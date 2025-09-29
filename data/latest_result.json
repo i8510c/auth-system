@@ -1,0 +1,14 @@
+{
+  "action": "status",
+  "timestamp": "2024-01-01T00:00:00Z",
+  "data": {
+    "success": true,
+    "system_status": {
+      "total_authorized": 12,
+      "active_devices": 0,
+      "max_activations": 12,
+      "last_updated": "2024-01-01T00:00:00Z",
+      "version": "1.0.0"
+    }
+  }
+}
