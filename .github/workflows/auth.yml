@@ -1,0 +1,81 @@
+name: Auth System Processing
+
+on:
+  workflow_dispatch:
+    inputs:
+      action:
+        description: '执行动作'
+        required: true
+        type: choice
+        options:
+        - request_auth
+        - activate
+        - verify
+        - revoke
+        - status
+      work_id:
+        description: '工号'
+        required: false
+        type: string
+      auth_code:
+        description: '授权码'
+        required: false
+        type: string
+      timestamp:
+        description: '时间戳'
+        required: false
+        type: string
+      device_info:
+        description: '设备信息'
+        required: false
+        type: string
+
+env:
+  SECRET_KEY: ${{ secrets.AUTH_SECRET_KEY }}
+
+jobs:
+  process-auth:
+    runs-on: ubuntu-latest
+    steps:
+    - name: 检出代码
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: 设置Python环境
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    - name: 执行授权处理
+      run: |
+        python scripts/auth_processor.py \
+          --action "${{ github.event.inputs.action }}" \
+          --work_id "${{ github.event.inputs.work_id }}" \
+          --auth_code "${{ github.event.inputs.auth_code }}" \
+          --timestamp "${{ github.event.inputs.timestamp }}" \
+          --device_info "${{ github.event.inputs.device_info }}" \
+          --secret "$SECRET_KEY"
+
+    - name: 提交数据变更
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add data/
+        git diff --staged --quiet || (git commit -m "Auth: Update auth data via ${{ github.event.inputs.action }}" && git push)
+
+    - name: 生成状态报告
+      run: |
+        echo "授权处理完成"
+        echo "动作: ${{ github.event.inputs.action }}"
+        echo "工号: ${{ github.event.inputs.work_id }}"
+        echo "时间: $(date)"
+
+  notify-on-failure:
+    runs-on: ubuntu-latest
+    if: failure()
+    needs: process-auth
+    steps:
+    - name: 发送失败通知
+      run: |
+        echo "授权处理失败，请检查日志"
