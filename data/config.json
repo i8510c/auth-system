@@ -1,0 +1,7 @@
+{
+  "system_name": "GitHub远程授权系统",
+  "version": "1.0.0",
+  "token_expire_days": 30,
+  "auth_code_valid_minutes": 10,
+  "max_activations": 12
+}
