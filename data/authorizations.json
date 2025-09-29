@@ -1,0 +1,18 @@
+{
+  "authorizations": {
+    "device_123456": {
+      "auth_code": "AUTH123456",
+      "device_id": "device_123456",
+      "expire_time": 1735660800000,
+      "status": "active",
+      "auth_type": "standard"
+    },
+    "pending": {
+      "auth_code": "NEWUSER001",
+      "device_id": "pending",
+      "expire_time": 1735660800000,
+      "status": "active",
+      "auth_type": "standard"
+    }
+  }
+}
