@@ -1,0 +1,65 @@
+{
+  "workers": {
+    "4511002600001": {
+      "name": "张三",
+      "department": "技术部",
+      "status": "active"
+    },
+    "4511002600002": {
+      "name": "李四",
+      "department": "销售部",
+      "status": "active"
+    },
+    "4511002600003": {
+      "name": "王五",
+      "department": "市场部",
+      "status": "active"
+    },
+    "4511002600004": {
+      "name": "赵六",
+      "department": "技术部",
+      "status": "active"
+    },
+    "4511002600005": {
+      "name": "钱七",
+      "department": "销售部",
+      "status": "active"
+    },
+    "4511002600006": {
+      "name": "孙八",
+      "department": "市场部",
+      "status": "active"
+    },
+    "4511002600007": {
+      "name": "周九",
+      "department": "技术部",
+      "status": "active"
+    },
+    "4511002600008": {
+      "name": "吴十",
+      "department": "销售部",
+      "status": "active"
+    },
+    "4511002600009": {
+      "name": "郑十一",
+      "department": "市场部",
+      "status": "active"
+    },
+    "4511002600010": {
+      "name": "王十二",
+      "department": "技术部",
+      "status": "active"
+    },
+    "4511002600011": {
+      "name": "李十三",
+      "department": "销售部",
+      "status": "active"
+    },
+    "4511002600012": {
+      "name": "张十四",
+      "department": "市场部",
+      "status": "active"
+    }
+  },
+  "last_updated": "2024-01-01T00:00:00Z"
+}
