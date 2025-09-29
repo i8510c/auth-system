@@ -1,0 +1,5 @@
+{
+  "auth_code_pattern": "^[A-Z0-9]{8,20}$",
+  "max_devices_per_code": 1,
+  "default_expire_days": 30
+}
