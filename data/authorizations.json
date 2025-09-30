@@ -1,8 +1,8 @@
 {
   "authorizations": {
     "device_123456": {
-      "auth_code": "AUTH123456",
-      "device_id": "device_123456",
+      "auth_code": "Q]ciBtN2^8",
+      "device_id": "MC_303664B9",
       "expire_time": 1735660800000,
       "status": "active",
       "auth_type": "standard"
